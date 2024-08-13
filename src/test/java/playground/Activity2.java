@@ -15,7 +15,7 @@ public class Activity2 {
     @DataProvider(name = "addingName")
     public static Object[][] addingName() {
         return new Object[][]{
-                {"John", "Doe", "DOE, John"},
+                {"Jawid", "Gulzai", "GULZAI, Jawid"},
                 {"Jane", "Smith", "SMITH, Jane"}
         };
     }
