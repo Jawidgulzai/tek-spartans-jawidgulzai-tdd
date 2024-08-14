@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class MoreAboutDataTable {
+public class MoreAboutDataTableTest {
 
     @Test(dataProvider = "testingData1")
     public void someTesting(String name, Integer expectedLength) {

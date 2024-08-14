@@ -4,13 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Activity2 {
+public class Activity2Test {
 
     //Write a method that takes firstName and Last Name as parameters
     //and Return full name in format LASTNAME, Firstname
-    // mohammad -> Mohammad
+    // mohammad → Mohammad
 
-    //Step 2) Write A test in TestNG to test above method functionality
+    //Step 2) Write A test in TestNG to test the above method functionality
     public String getFullName(String firstName, String lastName) {
         if (firstName == null || lastName == null)
             throw new RuntimeException("FirstName or Last Name can NOT be null");
@@ -35,9 +35,9 @@ public class Activity2 {
     @DataProvider(name = "positiveTestData")
     private String[][] positiveTestData() {
         return new String[][]{
-                {"jawid", "gulzai", "GULZAI, Jawid" },
-                {"JoHN", "SMITH", "SMITH, John" },
-                {" ALEN ", " smith ", "SMITH, Alen" },
+                {"jawid", "gulzai", "GULZAI, Jawid"},
+                {"JoHN", "SMITH", "SMITH, John"},
+                {" ALEN ", " smith ", "SMITH, Alen"},
 
         };
     }
@@ -59,8 +59,6 @@ public class Activity2 {
 
     @Test
     public void testNegativeWithAssertionThrow() {
-        Assert.assertThrows(RuntimeException.class, () -> {
-            getFullName("", "");
-        });
+        Assert.assertThrows(RuntimeException.class, () -> getFullName("", ""));
     }
 }
