@@ -23,13 +23,12 @@ public class SeleniumUtility extends BaseSetup {
 
     public String getElementText(By locator) {
         LOGGER.debug("Returning element text {}", locator);
-        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+        return waitForVisibilityOf(locator).getText();
     }
 
     public boolean isElementEnabled(By locator) {
         LOGGER.debug("Checking element enable status {}", locator);
-        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator))
-                .isEnabled();
+        return waitForVisibilityOf(locator).isEnabled();
 
     }
 }
