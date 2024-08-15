@@ -3,6 +3,7 @@ package tek.tdd.utility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tek.tdd.base.BaseSetup;
@@ -16,15 +17,19 @@ public class SeleniumUtility extends BaseSetup {
     private WebDriverWait getWait()  {
         return new WebDriverWait(getDriver(), Duration.ofSeconds(WAIT_TIME_IN_SECOND));
     }
+    public WebElement waitForVisibilityOf(By locator){
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
     public String getElementText(By locator) {
         LOGGER.debug("Returning element text {}", locator);
-        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator))
-                .getText();
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
 
-    public boolean isElementIsEnabled(By locator){
-        LOGGER.debug("Make sure sign in button is enabled {}", locator);
-        return getWait().until(ExpectedConditions.elementToBeClickable(locator)).isEnabled();
+    public boolean isElementEnabled(By locator) {
+        LOGGER.debug("Checking element enable status {}", locator);
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator))
+                .isEnabled();
+
     }
 }
