@@ -23,7 +23,7 @@ import java.util.Properties;
 public abstract class BaseSetup {
 
     private static final Logger LOGGER = LogManager.getLogger(BaseSetup.class);
-    protected static final long WAIT_TIME_IN_SECOND = 25;
+    protected static final long WAIT_TIME_IN_SECOND = 20;
     private static WebDriver driver;
     private final Properties properties;
 
@@ -72,6 +72,7 @@ public abstract class BaseSetup {
         driver.get(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WAIT_TIME_IN_SECOND));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(WAIT_TIME_IN_SECOND));
     }
 
     public void quitBrowser() {
