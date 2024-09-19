@@ -39,8 +39,7 @@ public abstract class BaseSetup {
             properties.load(inputStream);
 
             //Get API Base URL and setup RestAssured
-            String baseURL = properties.getProperty("api.url");
-            RestAssured.baseURI = baseURL;
+            RestAssured.baseURI = properties.getProperty("api.url");
 
         } catch (IOException ioException) {
             LOGGER.error("Config file error with message {}", ioException.getMessage());
@@ -91,5 +90,8 @@ public abstract class BaseSetup {
     public WebDriver getDriver() {
         LOGGER.info("Getting the driver");
         return driver;
+    }
+    public String getProperty(String key) {
+        return properties.getProperty(key);
     }
 }
