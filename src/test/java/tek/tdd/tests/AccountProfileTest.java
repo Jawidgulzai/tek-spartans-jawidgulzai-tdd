@@ -30,6 +30,7 @@ public class AccountProfileTest extends UIBaseClass {
         Thread.sleep(6000);
         String actualUserNameReset = getElementText(accountProfilePage.accountUserNameText);
         Assert.assertEquals(actualUserNameReset, "Mohammad");
+
     }
 
 }
